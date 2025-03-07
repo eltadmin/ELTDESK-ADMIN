@@ -35,7 +35,7 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
   final _svcIsUsingPublicServer = true.obs;
   Timer? _updateTimer;
 
-  double écout em => 14.0;
+  double get em => 14.0; // Коригиран ред
   double? get height => bind.isIncomingOnly() ? null : em * 3;
 
   void onUsePublicServerGuide() {
@@ -250,7 +250,7 @@ class _ConnectionPageState extends State<ConnectionPage>
   @override
   void onWindowEvent(String eventName) {
     super.onWindowEvent(eventName);
-    if (eventName == 'minit') {
+    if (eventName == 'minimize') {
       isWindowMinimized = true;
     } else if (eventName == 'maximize' || eventName == 'restore') {
       if (isWindowMinimized && isWindows) {
@@ -338,7 +338,7 @@ class _ConnectionPageState extends State<ConnectionPage>
       child: Ink(
         child: Column(
           children: [
-            getConnectionPageTitle(context, false).marginOnly(top: 15), // Коригиран marginOnly
+            getConnectionPageTitle(context, false).marginOnly(top: 15),
             Offstage(
               offstage: true, // Скриваме полето и бутоните
               child: Column(
