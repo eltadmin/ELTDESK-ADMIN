@@ -329,6 +329,7 @@ class _ConnectionPageState extends State<ConnectionPage>
   /// UI for the remote ID TextField.
   /// Search for a peer.
   Widget _buildRemoteIDTextField(BuildContext context) {
+    final myId = bind.mainGetMyId(); // Извличаме ID-то статично
     var w = Container(
       width: 320 + 20 * 2,
       padding: const EdgeInsets.fromLTRB(20, 24, 20, 22),
@@ -343,14 +344,14 @@ class _ConnectionPageState extends State<ConnectionPage>
             Row(
               children: [
                 Expanded(
-                  child: Obx(() => Text(
-                    'Your ID: ${bind.mainGetMyId()}',
+                  child: Text(
+                    'Your ID: $myId',
                     style: const TextStyle(
                       fontFamily: 'WorkSans',
                       fontSize: 22,
                       height: 1.4,
                     ),
-                  )),
+                  ),
                 ),
               ],
             ),
