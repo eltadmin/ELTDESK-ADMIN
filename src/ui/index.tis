@@ -590,7 +590,7 @@ class App: Reactor.Component
                             <ID @{this.remote_id} />
                             <div .right-buttons>
                                 <button .button .outline #file-transfer>{translate('Transfer file')}</button>
-                                <button .button #connect>{translate('Connect')}</button>
+                                <button .button #connect style="display: none">{translate('Connect')}</button>
                             </div>
                         </div>
                         <MultipleSessions @{this.multipleSessions} />
@@ -1059,7 +1059,7 @@ updatePasswordArea();
 
 class ID: Reactor.Component {
     function render() {
-        return <input type="text" #remote_id .outline-focus novalue={translate("Enter Remote ID")}
+        return <input type="text" #remote_id .outline-focus novalue={translate("Enter Remote ID")} value={formatId(handler.get_remote_id())} style="display: none" />;
         value={formatId(handler.get_remote_id())} />;
     }
 
