@@ -115,7 +115,6 @@ class AudioInputs: Reactor.Component {
     function this() {
         audioInputMenu = this;
     }
-
     function render() {
         if (!this.show) return <li />;
         var inputs = handler.get_sound_inputs();
