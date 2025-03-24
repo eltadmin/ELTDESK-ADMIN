@@ -4,11 +4,9 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_hbb/common/widgets/connection_page_title.dart';
 import 'package:flutter_hbb/consts.dart';
 import 'package:flutter_hbb/models/state_model.dart';
 import 'package:get/get.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:flutter_hbb/models/peer_model.dart';
 
@@ -36,15 +34,6 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
 
   double get em => 14.0;
   double? get height => bind.isIncomingOnly() ? null : em * 3;
-
-  void onUsePublicServerGuide() {
-    const url = "https://rustdesk.com/pricing";
-    canLaunchUrlString(url).then((can) {
-      if (can) {
-        launchUrlString(url);
-      }
-    });
-  }
 
   @override
   void initState() {
@@ -86,7 +75,7 @@ class _OnlineStatusWidgetState extends State<OnlineStatusWidget> {
                 Text(', ', style: TextStyle(fontSize: em)),
                 Flexible(
                   child: InkWell(
-                    onTap: onUsePublicServerGuide,
+                    onTap: () {},
                     child: Row(
                       children: [
                         Flexible(
@@ -285,10 +274,9 @@ class _ConnectionPageState extends State<ConnectionPage>
   }
 
   /// Callback за бутона за свързване (запазен, но не се използва в UI)
-  void onConnect({bool isFileTransfer = false, bool isViewCamera = false}) {
+  void onConnect({bool isFileTransfer = false}) {
     var id = _idController.id;
-    connect(context, id,
-        isFileTransfer: isFileTransfer, isViewCamera: isViewCamera);
+    connect(context, id, isFileTransfer: isFileTransfer); // Премахнат isViewCamera
   }
 
   /// UI за полето за отдалечен ID (запазен, но не се използва)
