@@ -108,8 +108,6 @@ class DirectServer: Reactor.Component {
         this.update();
     }
 }
-
-
 var myIdMenu;
 var audioInputMenu;
 class AudioInputs: Reactor.Component {
